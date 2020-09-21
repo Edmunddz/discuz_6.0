@@ -1,0 +1,27 @@
+{template header}
+<div id="nav"><a href="$indexname">$bbname</a> &raquo; {lang announcements}</div>
+
+<script type="text/javascript" src="include/javascript/viewthread.js"></script>
+<script type="text/javascript">zoomstatus = parseInt($zoomstatus);</script>
+
+<!--{if !empty($multipage)}--><div class="pages_btns">$multipage</div><!--{/if}-->
+
+<div class="box">
+<!--{loop $announcelist $announce}-->
+	<div class="specialpost" id="$announce[id]">
+		<div class="postinfo">
+			<h2>$announce[subject]</h2>
+			<strong>$announce[id]<sup>#</sup></strong>
+			{lang author}: <a href="space.php?username=$announce[authorenc]">$announce[author]</a> |
+			{lang starttime}: $announce[starttime] |
+			{lang endtime}: <!--{if $announce['endtime']}-->$announce[endtime]<!--{else}-->{lang unlimited}<!--{/if}-->
+		</div>
+		<div class="postmessage">
+			$announce[message]
+		</div>
+	</div>
+<!--{/loop}-->
+</div>
+
+<!--{if !empty($multipage)}--><div class="pages_btns">$multipage</div><!--{/if}-->
+{template footer}
